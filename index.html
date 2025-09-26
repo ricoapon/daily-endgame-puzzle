@@ -13,6 +13,10 @@
             color: white;
         }
 
+        h1 {
+            margin: 0;
+        }
+
         .wrap {
             display: grid;
             width: fit-content;
@@ -36,6 +40,8 @@
             padding: 0;
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         nav li {
@@ -51,6 +57,10 @@
             border-radius: 6px;
             cursor: pointer;
             transition: background 0.2s;
+
+            display: inline-block;
+            text-align: center;
+            white-space: normal;
         }
 
         nav a:hover {
