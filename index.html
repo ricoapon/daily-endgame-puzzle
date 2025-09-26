@@ -2654,10 +2654,16 @@
 
     // 2) Deterministically select today's puzzle
     function dayIndex() {
-        const d = new Date();
-        const utc = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
-        return Math.floor(utc / (24 * 60 * 60 * 1000));
+        // Determine the number of days between today and 2025-09-26.
+        const MS_PER_DAY = 1000 * 60 * 60 * 24;
+        // Note that months are 0-based.
+        const puzzleDate0 = Date.UTC(2025, 8, 26);
+        const now = new Date();
+        const today = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+
+        return Math.floor((today - puzzleDate0) / MS_PER_DAY);
     }
+
     function getPuzzleIdFromQueryParameters() {
         const params = new URLSearchParams(window.location.search);
         const puzzleId = params.get("puzzle");
