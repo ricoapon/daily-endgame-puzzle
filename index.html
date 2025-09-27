@@ -2723,7 +2723,7 @@
         if (answer === null) {
             return;
         }
-        const id = Number();
+        const id = Number(answer);
         if (Number.isInteger(id) && id >= 0 && id < FENS.length) {
             window.location.href = `?puzzle=${id}`;
         } else if (id !== null) {
