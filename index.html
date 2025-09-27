@@ -17,6 +17,11 @@
             margin: 0;
         }
 
+        h1 a {
+            color: white;
+            text-decoration: none;
+        }
+
         .wrap {
             display: grid;
             width: fit-content;
@@ -70,7 +75,7 @@
 </head>
 <body>
 <div class="wrap">
-    <h1>Daily Endgame Puzzle <span id="id"></span></h1>
+    <h1><a href="#" onclick="this.href = window.location.pathname">Daily Endgame Puzzle <span id="id"></span></a></h1>
     <img id="board" alt="Chess position from FEN"/>
     <nav>
         <ul>
