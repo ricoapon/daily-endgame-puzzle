@@ -2710,8 +2710,9 @@
             alert("FEN copied to clipboard!");
         });
     }
+
     function goToPuzzle() {
-        const id = Number(prompt(`Enter Puzzle day (from 0 to ${FENS.length - 1}:`));
+        const id = Number(prompt(`Enter Puzzle day (from 0 to ${FENS.length - 1}):`));
         if (Number.isInteger(id) && id >= 0 && id < FENS.length) {
             window.location.href = `?puzzle=${id}`;
         } else if (id !== null) {
