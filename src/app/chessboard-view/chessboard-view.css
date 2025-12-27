@@ -1,0 +1,65 @@
+/* THIS FILE APPLIES GLOBAL CSS. That is needed to get the CSS applied to the board dependency. */
+cg-board {
+  background-image: url('/chessboard-background.png') !important;
+  /* We use an immutable board, so don't use the click cursor. */
+  cursor: default !important;
+}
+
+/* Put the rank coordinates on the right. */
+.cg-wrap coords.ranks {
+  top: -26px !important;
+  right: 0 !important;
+  left: auto !important;
+  width: 8px !important;
+  font-weight: bold;
+}
+
+/* The default file coordinates looked a bit weird, so I moved them around to fit better. */
+.cg-wrap coords.files {
+  left: 3px !important;
+  text-transform: none !important;
+  text-align: left !important;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  cg-board {
+    /* Use rounded corners, just like Lichess. */
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cg-wrap coords.ranks {
+    /* Original is -20px, but I need to slightly adjust this to correct it for mobile.*/
+    top: -17px !important;
+  }
+}
+
+/* Styling of the divs in Angular. */
+.chessboard-view-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+:root {
+  /* Total height of all other objects on the screen, like the header, buttons and padding. Plus some additional space. */
+  --reserved-height: 100px;
+}
+
+/* Responsive square wrapper */
+.chessboard-view-square-wrapper {
+  width: min(100%, calc(100vh - var(--reserved-height)));
+  aspect-ratio: 1 / 1;
+  position: relative;
+  margin: 0;
+}
+
+#nonResponsiveDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
