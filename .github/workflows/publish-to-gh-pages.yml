@@ -1,0 +1,44 @@
+name: Publish to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build:github-pages
+
+      - name: Upload files
+        id: deployment
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist/daily-endgame-puzzle/browser
+
+  deploy-to-gh-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    if: success()
+    # Required permissions for upload-pages-artifact.
+    permissions:
+      pages: write
+      id-token: write
+    # Deploy to the github-pages environment.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
