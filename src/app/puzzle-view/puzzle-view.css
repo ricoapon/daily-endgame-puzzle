@@ -1,0 +1,16 @@
+h1 {
+  margin: 20px 0 5px 0;
+}
+
+h1 a {
+  color: white;
+  text-decoration: none;
+}
+
+.wrap {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+}

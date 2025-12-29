@@ -47,7 +47,7 @@ cg-board {
 
 :root {
   /* Total height of all other objects on the screen, like the header, buttons and padding. Plus some additional space. */
-  --reserved-height: 100px;
+  --reserved-height: 220px;
 }
 
 /* Responsive square wrapper */

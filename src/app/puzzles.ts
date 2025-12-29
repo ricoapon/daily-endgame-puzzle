@@ -15,6 +15,14 @@ export function getPuzzleIdOfToday() {
   return mod(Math.floor((today.getTime() - puzzleDate0) / MS_PER_DAY), FENS.length);
 }
 
+export function previousPuzzleId(id: number) {
+  return mod(id - 1, FENS.length)
+}
+
+export function totalNrOfPuzzles() {
+  return FENS.length
+}
+
 // When doing "x % y", JavaScript doesn't guarantee that the final value is between 0 and y. It can be negative.
 // That is annoying. So we use this method instead.
 function mod(x: number, y: number) {
