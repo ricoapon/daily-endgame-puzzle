@@ -1,6 +1,6 @@
 import {Component, computed, ElementRef, OnInit, signal, ViewChild} from '@angular/core';
 import {ChessboardView} from '../chessboard-view/chessboard-view';
-import {getPuzzle, getPuzzleIdOfToday, previousPuzzleId, totalNrOfPuzzles} from '../puzzles';
+import {getPuzzle, getPuzzleIdOfToday, nextPuzzleId, previousPuzzleId, totalNrOfPuzzles} from '../puzzles';
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -49,6 +49,10 @@ export class PuzzleView implements OnInit {
 
   previousPuzzle() {
     this.router.navigate(['/puzzle', previousPuzzleId(this.puzzleId())])
+  }
+
+  nextPuzzle() {
+    this.router.navigate(['/puzzle', nextPuzzleId(this.puzzleId())])
   }
 
   openInLichess() {

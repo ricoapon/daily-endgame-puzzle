@@ -19,6 +19,10 @@ export function previousPuzzleId(id: number) {
   return mod(id - 1, FENS.length)
 }
 
+export function nextPuzzleId(id: number) {
+  return mod(id + 1, FENS.length)
+}
+
 export function totalNrOfPuzzles() {
   return FENS.length
 }
