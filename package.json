@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:github-pages": "ng build --configuration development && cp dist/daily-endgame-puzzle/browser/index.html dist/daily-endgame-puzzle/browser/404.html",
     "watch": "ng build --watch --configuration development"
   },
   "prettier": {
